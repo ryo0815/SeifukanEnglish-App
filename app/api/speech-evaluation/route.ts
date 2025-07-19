@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 // Azure Speech Service configuration
-const AZURE_SPEECH_KEY = process.env.AZURE_SPEECH_KEY || '5WxJY37YDCMbziJTapH9sOSkmjZUCMZ0IjzP59xz8CGfsd3ky96TJQQJ99BGACxCCsyXJ3w3AAAYACOGHRAO'
+const AZURE_SPEECH_KEY = process.env.AZURE_SPEECH_KEY || ''
 const AZURE_SPEECH_REGION = process.env.AZURE_SPEECH_REGION || 'japanwest'
 
 interface PronunciationAssessmentResult {

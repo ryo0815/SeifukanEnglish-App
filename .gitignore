@@ -214,8 +214,6 @@ __azurite_db*__.json
 Thumbs.db
 
 # API Keys and secrets - IMPORTANT!
-.env*
-!.env.example
 *.key
 *.pem
 config/secrets.json
