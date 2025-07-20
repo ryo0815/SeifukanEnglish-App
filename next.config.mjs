@@ -9,6 +9,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // 静的ファイル配信最適化
+  assetPrefix: '',
+  trailingSlash: false,
   // Vercel最適化設定
   experimental: {
     serverComponentsExternalPackages: [],

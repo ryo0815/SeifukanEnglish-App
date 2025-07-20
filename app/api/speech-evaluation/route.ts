@@ -54,6 +54,11 @@ export async function POST(request: NextRequest) {
     console.log(`Azure key length: ${AZURE_SPEECH_KEY.length}`)
     console.log(`Azure region: ${AZURE_SPEECH_REGION}`)
     console.log(`Azure key format check: ${/^[a-zA-Z0-9]{32}$/.test(AZURE_SPEECH_KEY) ? 'VALID' : 'INVALID'}`)
+    console.log('=== ENVIRONMENT VARIABLES DEBUG ===')
+    console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
+    console.log(`VERCEL: ${process.env.VERCEL}`)
+    console.log(`VERCEL_ENV: ${process.env.VERCEL_ENV}`)
+    console.log(`Environment variables available: ${Object.keys(process.env).filter(key => key.startsWith('AZURE')).join(', ')}`)
 
     const audioBuffer = await audioFile.arrayBuffer()
     console.log('=== CALLING AZURE SPEECH SERVICE ===')
@@ -178,9 +183,15 @@ async function callAzurePronunciationAssessment(
       return processPronunciationAssessmentResponse(data, referenceText)
     } else {
       const errorText = await response.text()
-      console.log('=== PRONUNCIATION ASSESSMENT FAILED ===')
-      console.log(`Status: ${response.status}`)
-      console.log(`Error: ${errorText}`)
+      console.error('=== PRONUNCIATION ASSESSMENT FAILED - DETAILED DEBUG ===')
+      console.error(`Status: ${response.status} ${response.statusText}`)
+      console.error(`Error Response: ${errorText}`)
+      console.error(`Request URL: ${url}?${params}`)
+      console.error(`Azure Key Length: ${AZURE_SPEECH_KEY.length}`)
+      console.error(`Azure Region: ${AZURE_SPEECH_REGION}`)
+      console.error(`Audio Buffer Size: ${audioBuffer.byteLength} bytes`)
+      console.error(`Reference Text: "${referenceText}"`)
+      console.error(`Pronunciation Assessment Config: ${pronunciationConfigJson}`)
       
       // 代替案2: 別の設定で再試行
       return await tryAlternativePronunciationAssessment(audioBuffer, referenceText)

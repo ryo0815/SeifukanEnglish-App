@@ -11,6 +11,17 @@ export const metadata: Metadata = {
   description:
     "日常会話に特化した英語発音アプリ。防御・攻撃・発信の3段階で英語力を向上させよう！",
   manifest: "/manifest.json",
+  icons: {
+    icon: [
+      { url: "/icon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512x512.png", sizes: "512x512", type: "image/png" }
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }
+    ]
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
