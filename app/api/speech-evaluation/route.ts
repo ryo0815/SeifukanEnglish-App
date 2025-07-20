@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
     console.log(`Azure key (first 10 chars): ${AZURE_SPEECH_KEY.substring(0, 10)}...`)
     console.log(`Azure key length: ${AZURE_SPEECH_KEY.length}`)
     console.log(`Azure region: ${AZURE_SPEECH_REGION}`)
-    console.log(`Azure key format check: ${/^[a-zA-Z0-9]{32}$/.test(AZURE_SPEECH_KEY) ? 'VALID' : 'INVALID'}`)
+    console.log(`Azure key format check: ${AZURE_SPEECH_KEY.length >= 32 && /^[a-zA-Z0-9]+$/.test(AZURE_SPEECH_KEY) ? 'VALID' : 'INVALID'}`)
     console.log('=== ENVIRONMENT VARIABLES DEBUG ===')
     console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
     console.log(`VERCEL: ${process.env.VERCEL}`)
