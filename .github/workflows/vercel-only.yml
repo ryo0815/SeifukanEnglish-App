@@ -1,0 +1,21 @@
+# This file explicitly disables GitHub Pages and indicates Vercel deployment
+name: Vercel Deployment Only
+
+# This workflow prevents GitHub Pages deployment
+# All deployments are handled by Vercel
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deployment Info
+        run: |
+          echo "🚀 This project deploys to Vercel"
+          echo "📝 GitHub Pages is intentionally disabled"
+          echo "🔗 Vercel handles all deployments automatically" 
