@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "functions": {
+    "app/api/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "AZURE_SPEECH_KEY": "@azure_speech_key",
+    "AZURE_SPEECH_REGION": "@azure_speech_region"
+  }
+} 

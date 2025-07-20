@@ -1,8 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-// Azure Speech Service configuration
+// Azure Speech Service configuration with validation
 const AZURE_SPEECH_KEY = process.env.AZURE_SPEECH_KEY || ''
 const AZURE_SPEECH_REGION = process.env.AZURE_SPEECH_REGION || 'japanwest'
+
+// Environment variable validation for Vercel deployment
+if (!AZURE_SPEECH_KEY) {
+  console.error('❌ AZURE_SPEECH_KEY is not set. Please configure environment variables in Vercel dashboard.')
+}
 
 interface PronunciationAssessmentResult {
   overallGrade: 'A' | 'B' | 'C' | 'D' | 'E'
@@ -22,6 +27,17 @@ interface PronunciationAssessmentResult {
 export async function POST(request: NextRequest) {
   try {
     console.log('=== PRONUNCIATION ASSESSMENT API CALLED ===')
+    
+    // Vercel deployment: Check environment variables
+    if (!AZURE_SPEECH_KEY) {
+      return NextResponse.json({
+        error: 'Azure Speech Service API key is not configured. Please set AZURE_SPEECH_KEY in Vercel environment variables.',
+        overallGrade: 'C' as const,
+        improvements: ['Azure API configuration required'],
+        positives: [],
+        feedback: 'システム設定が必要です'
+      }, { status: 500 })
+    }
     
     const formData = await request.formData()
     const audioFile = formData.get('audio') as File

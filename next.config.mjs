@@ -9,6 +9,17 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Vercel最適化設定
+  experimental: {
+    serverComponentsExternalPackages: [],
+  },
+  // APIルートのタイムアウト延長
+  api: {
+    bodyParser: {
+      sizeLimit: '10mb',
+    },
+    responseLimit: false,
+  },
 }
 
 export default nextConfig

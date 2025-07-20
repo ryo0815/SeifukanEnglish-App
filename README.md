@@ -149,6 +149,50 @@ npm run dev
 
 MIT License
 
+## 🌐 Vercelデプロイ
+
+### 1. Vercelアカウントでデプロイ
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ryo0815/SeifukanEnglish)
+
+### 2. 環境変数の設定
+
+Vercelダッシュボードで以下の環境変数を設定：
+
+| 変数名 | 説明 | 例 |
+|--------|------|-----|
+| `AZURE_SPEECH_KEY` | Azure Speech Service APIキー | `1234567890abcdef...` |
+| `AZURE_SPEECH_REGION` | Azure Speech Serviceリージョン | `japaneast` |
+
+### 3. デプロイ手順
+
+1. **GitHubからインポート**:
+   - Vercel ダッシュボードで「New Project」をクリック
+   - このリポジトリを選択してインポート
+
+2. **環境変数設定**:
+   - Settings > Environment Variables で上記の変数を追加
+   - Production, Preview, Development 全てにチェック
+
+3. **デプロイ実行**:
+   - 自動的にビルド・デプロイが開始されます
+   - 数分でデプロイ完了
+
+### 4. 設定ファイル
+
+- `vercel.json`: Vercel固有の設定（APIタイムアウト等）
+- `.env.example`: 環境変数テンプレート
+
+### 5. トラブルシューティング
+
+**ビルドエラーが発生した場合:**
+- 環境変数が正しく設定されているか確認
+- Azure Speech Service リソースが有効か確認
+
+**API エラーが発生した場合:**
+- APIキーの権限を確認
+- 使用量制限に達していないか確認
+
 ## 🤝 コントリビューション
 
 Issue や Pull Request を歓迎します！
