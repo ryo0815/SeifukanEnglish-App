@@ -5,10 +5,6 @@
       "maxDuration": 30
     }
   },
-  "env": {
-    "AZURE_SPEECH_KEY": "@azure_speech_key",
-    "AZURE_SPEECH_REGION": "@azure_speech_region"
-  },
   "github": {
     "enabled": false,
     "autoAlias": false
