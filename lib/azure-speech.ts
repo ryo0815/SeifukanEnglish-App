@@ -1,8 +1,9 @@
 // Azure Speech Service Configuration
 export const AZURE_SPEECH_CONFIG = {
   key: process.env.AZURE_SPEECH_KEY || '',
-  region: process.env.AZURE_SPEECH_REGION || 'japanwest',
-  endpoint: `https://${process.env.AZURE_SPEECH_REGION || 'japanwest'}.api.cognitive.microsoft.com/`
+  region: process.env.AZURE_SPEECH_REGION || '',
+  endpoint: process.env.AZURE_SPEECH_REGION ? 
+    `https://${process.env.AZURE_SPEECH_REGION}.api.cognitive.microsoft.com/` : ''
 }
 
 export interface PronunciationAssessmentConfig {

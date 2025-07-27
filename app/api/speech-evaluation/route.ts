@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 // Azure Speech Service configuration with validation
 const AZURE_SPEECH_KEY = process.env.AZURE_SPEECH_KEY || ''
-const AZURE_SPEECH_REGION = process.env.AZURE_SPEECH_REGION || 'japanwest'
+const AZURE_SPEECH_REGION = process.env.AZURE_SPEECH_REGION || ''
 
 // Environment variable validation for Vercel deployment
 if (!AZURE_SPEECH_KEY) {
