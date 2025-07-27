@@ -59,20 +59,41 @@ npm run dev
 
 ⚠️ **重要**: このアプリはサーバーサイドAPIを使用するため、**静的サイトとしてはデプロイできません**。
 
-### 推奨デプロイ方法
+### Vercelでのデプロイ（推奨）
 
-1. **Vercel** (推奨)
-   ```bash
-   npx vercel
+1. **Vercelアカウントの準備**
+   - [Vercel](https://vercel.com) にサインアップ
+   - GitHubアカウントと連携
+
+2. **プロジェクトのインポート**
+   - Vercelダッシュボードで「New Project」をクリック
+   - GitHubリポジトリ `ryo0815/Seifukan-English-App` を選択
+   - フレームワークとして「Next.js」を選択
+
+3. **環境変数の設定**
+   - Vercelプロジェクトの「Settings」→「Environment Variables」で以下を設定：
+   ```
+   AZURE_SPEECH_KEY=your_actual_azure_speech_key
+   AZURE_SPEECH_REGION=your_azure_region (例: japanwest)
    ```
 
-2. **Netlify Functions**
+4. **デプロイ**
+   - 「Deploy」をクリック
+   - 初回デプロイが完了するまで待機（約2-3分）
+
+5. **動作確認**
+   - デプロイされたURLでアプリケーションを確認
+   - 発音評価機能が正常に動作することを確認
+
+### その他のデプロイ方法
+
+1. **Netlify Functions**
    - Netlify Functions として API ルートをデプロイ
 
-3. **Azure Static Web Apps**
+2. **Azure Static Web Apps**
    - Azure Functions と統合してデプロイ
 
-4. **Docker**
+3. **Docker**
    ```bash
    docker build -t seifukan-english .
    docker run -p 3000:3000 seifukan-english
