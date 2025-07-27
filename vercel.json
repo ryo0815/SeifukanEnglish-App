@@ -8,9 +8,5 @@
   "github": {
     "enabled": false,
     "autoAlias": false
-  },
-  "env": {
-    "AZURE_SPEECH_KEY": "@azure_speech_key",
-    "AZURE_SPEECH_REGION": "@azure_speech_region"
   }
 } 

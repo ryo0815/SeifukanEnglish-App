@@ -76,6 +76,16 @@ npm run dev
    AZURE_SPEECH_KEY=your_actual_azure_speech_key
    AZURE_SPEECH_REGION=your_azure_region (例: japanwest)
    ```
+   
+   **重要**: 環境変数名は正確に `AZURE_SPEECH_KEY` と `AZURE_SPEECH_REGION` としてください。
+   Vercelダッシュボードで以下の手順で設定：
+   1. プロジェクトの「Settings」タブをクリック
+   2. 左メニューから「Environment Variables」を選択
+   3. 「Add New」をクリック
+   4. 以下の環境変数を追加：
+      - Name: `AZURE_SPEECH_KEY`, Value: `your_actual_azure_speech_key`
+      - Name: `AZURE_SPEECH_REGION`, Value: `your_azure_region` (例: `japanwest`)
+   5. 「Save」をクリック
 
 4. **デプロイ**
    - 「Deploy」をクリック
