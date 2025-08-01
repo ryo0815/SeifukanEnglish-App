@@ -1,12 +1,13 @@
 {
-  "version": 2,
-  "functions": {
-    "app/api/**/*.ts": {
-      "maxDuration": 60
-    }
+  "name": "seifukan-english-app",
+  "env": {
+    "AZURE_SPEECH_KEY": "@azure-speech-key",
+    "AZURE_SPEECH_REGION": "@azure-speech-region"
   },
-  "github": {
-    "enabled": false,
-    "autoAlias": false
+  "build": {
+    "env": {
+      "AZURE_SPEECH_KEY": "@azure-speech-key",
+      "AZURE_SPEECH_REGION": "@azure-speech-region"
+    }
   }
 } 
